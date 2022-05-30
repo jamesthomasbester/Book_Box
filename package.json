@@ -1,0 +1,27 @@
+{
+  "name": "Book_Box",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jamesthomasbester/Book_Box.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jamesthomasbester/Book_Box/issues"
+  },
+  "homepage": "https://github.com/jamesthomasbester/Book_Box#readme",
+  "dependencies": {
+    "express": "^4.18.1",
+    "express-handlebars": "^6.0.6",
+    "express-sessions": "^1.0.6",
+    "mysql2": "^2.3.3",
+    "sequelize": "^6.20.1"
+  }
+}
