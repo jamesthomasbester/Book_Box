@@ -22,3 +22,4 @@ Book.hasMany(Comment, {
 });
 
 module.exports = { User, Book, Comment };
+
