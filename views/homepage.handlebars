@@ -1,1 +1,13 @@
-<h1>Test</h1>
+{{#each favourites as |favourite| }}
+<div class="row mb-4 favourite">
+  <div class="col-md-5">
+    <h2>
+      <a href="/favourite/{{favourite.id}}">{{favourite.name}}</a>
+    </h2>
+  <div class="col-md-7">
+    <p>
+      {{favourite.description}}
+    </p>
+  </div>
+</div>
+{{/each}}
