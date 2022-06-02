@@ -1,15 +1,25 @@
-const User = require('.');
-const Favourite = require('.');
-const Cart = require('.');
-const Book = require('.');
+const User = require('./User');
+const Book = require('./Book');
+const Comment = require('./Comment');
 
-User.hasMany(Favourite, {
-    foreignKey: 'user_id',
-    onDelete: 'CASCADE'
-  });
-  
-  Favourite.belongsTo(User, {
+User.hasMany(Book, {
     foreignKey: 'user_id'
-  });
+});
+Book.belongsTo(User, {
+    foreignKey: 'user_id'
+});
+Comment.belongsTo(User, {
+    foreignKey: 'user_id'
+});
+Comment.belongsTo(Book, {
+    foreignKey: 'book_id'
+});
+User.hasMany(Comment, {
+    foreignKey: 'user_id' 
+});
+Book.hasMany(Comment, {
+    foreignKey: 'book_id'
+});
 
-module.exports = { User , Favourite , Cart , Book};
+module.exports = { User, Book, Comment };
+
