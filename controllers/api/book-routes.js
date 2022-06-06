@@ -38,7 +38,7 @@ router.get('/', (req, res) => {
 
 
 router.get('/:category', (req, res) => {
-  Recipe.findAll({
+  Book.findAll({
       where: {
         category: req.params.category
       },
@@ -74,7 +74,7 @@ router.get('/:category', (req, res) => {
 
 
 router.get('/:id', (req, res) => {
-    Recipe.findOne({
+    Book.findOne({
       where: {
         id: req.params.id
       },
@@ -107,7 +107,7 @@ router.get('/:id', (req, res) => {
 
 
 router.post('/', withAuth, (req, res) => {
-    Recipe.create({
+    Book.create({
       title: req.body.title,
       description: req.body.description,
       category: req.body.category,
