@@ -1,6 +1,7 @@
 const User = require('./User');
 const Book = require('./Book');
-const Comment = require('./Comment');
+const Favourite = require('./Favourite');
+const Cart = require('./Cart');
 
 User.hasMany(Book, {
     foreignKey: 'user_id'
@@ -8,18 +9,18 @@ User.hasMany(Book, {
 Book.belongsTo(User, {
     foreignKey: 'user_id'
 });
-Comment.belongsTo(User, {
+Favourite.belongsTo(User, {
     foreignKey: 'user_id'
 });
-Comment.belongsTo(Book, {
+Cart.belongsTo(Book, {
     foreignKey: 'book_id'
 });
-User.hasMany(Comment, {
+User.hasMany(Favourite, {
     foreignKey: 'user_id' 
 });
-Book.hasMany(Comment, {
+Book.hasMany(Cart, {
     foreignKey: 'book_id'
 });
 
-module.exports = { User, Book, Comment };
+module.exports = { User, Book, Favourite, Cart };
 
