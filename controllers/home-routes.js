@@ -95,7 +95,7 @@ router.get('/recipes', (req, res) => {
             ]
         })
     }).then(dbPostData => {
-        id (!dbPostData) {
+        if(!dbPostData) {
             res.status(404).json({ message: 'No post found with this id' });
             return;
         }

@@ -59,10 +59,15 @@ Book.init(
             type: DataTypes.INTEGER,
             allowNull: false
         },
+        price: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            defaultValue: '$15.99'
+        },
         rating_count: {
             type: DataTypes.INTEGER,
             allowNull: false
-        },
+        }
     },
     {
         sequelize,
