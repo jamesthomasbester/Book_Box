@@ -15,20 +15,43 @@ Book.init(
             type: DataTypes.STRING,
             allowNull: true
         },
-        category: {
+        subtitle: {
+            type: DataTypes.STRING,
+        },
+        author: {
             type: DataTypes.STRING,
             allowNull: false
+        },
+        categories: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        thumbnail: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            validate: {
+                isURL: true
+            }
         },
         description: {
             type: DataTypes.TEXT('long'),
             allowNull: false
         },
-        image_url: {
-            type: DataTypes.STRING,
-            allowNull: true,
-            validate: {
-                isURL: true
-            }
+        published_year: {
+            type: DataTypes.INTEGER,
+            allowNull: false
+        },
+        average_rating: {
+            type: DataTypes.DECIMAL,
+            allowNull: false
+        },
+        num_pages: {
+            type: DataTypes.INTEGER,
+            allowNull: false
+        },
+        rating_count: {
+            type: DataTypes.INTEGER,
+            allowNull: false
         },
         user_id: {
             type: DataTypes.INTEGER,
@@ -47,3 +70,4 @@ Book.init(
 );
 
 module.exports = Book;
+
