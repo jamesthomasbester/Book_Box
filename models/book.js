@@ -9,54 +9,18 @@ Book.init(
             type: DataTypes.INTEGER,
             allowNull: false,
             primaryKey: true,
-            autoIncrement: true,
-            unique: true,
-        },
-        isbn13: {
-            type: DataTypes.STRING,
-            allowNull: false,
-        },
-        isbn10: {
-            type: DataTypes.STRING,
-            allowNull: false,
+            autoIncrement: true
         },
         title: {
             type: DataTypes.STRING,
-            allowNull: false,
+            allowNull: true
         },
-        subtitle: {
+        category: {
             type: DataTypes.STRING,
-            allowNull: true,
-        },
-        author: {
-            type: DataTypes.STRING,
-            allowNull: false,
-        },
-        categories: {
-            type: DataTypes.STRING,
-            allowNull: false,
-            defaultValue: "fiction"
-        },
-        thumbnail: {
-            type: DataTypes.STRING,
-            allowNull: false,
+            allowNull: false
         },
         description: {
-            type: DataTypes.STRING(1234),
-            allowNull: false,
-            defaultValue: 'was good'
-        },
-        published_year: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-        },
-        average_rating : {
-            type: DataTypes.FLOAT,
-            allowNull: false,
-            defaultValue: 3.2
-        },
-        num_pages: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.TEXT('long'),
             allowNull: false
         },
         price: {
@@ -71,11 +35,10 @@ Book.init(
     },
     {
         sequelize,
-        timestamps: false,
         freezeTableName: true,
         underscored: true,
-        modelName: 'book',
+        modelName: 'book'
     }
-)
+);
 
 module.exports = Book;
