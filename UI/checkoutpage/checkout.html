@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bookbox</title>
+
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <!-- library validate -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.js"></script>
+    <!-- style css -->
+    <link rel="stylesheet" href="checkout css/checkout.css">
+</head>
+<body>
+    
+<!-- header section starts  -->
+
+<header class="header">
+
+    <div class="header-1">
+
+        <img id="bookshelf"src="./image/logov2.png" alt="">
+
+        <form action="" class="search-form">
+            <input type="search" name="" placeholder="search here..." id="search-box">
+            <label for="search-box" class="fas fa-search"></label>
+        </form>
+
+        <div class="icons">
+            <div id="search-btn" class="fas fa-search"></div>
+            <a href="#" class="fas fa-heart"></a>
+            <a href="#" class="fas fa-shopping-cart"></a>
+            <div id="login-btn" class="fas fa-user"></div>
+        </div>
+
+    </div>
+
+    <div class="header-2">
+        <nav class="navbar">
+            <a href="#home">home</a>
+            <a href="#featured">featured</a>
+            <a href="#arrivals">arrivals</a>
+            <a href="#reviews">reviews</a>
+            <a href="#blogs">blogs</a>
+        </nav>
+    </div>
+
+</header>
+
+<!-- header section ends -->
+
+<!-- bottom navbar  -->
+
+<nav class="bottom-navbar">
+    <a href="#home" class="fas fa-home"></a>
+    <a href="#featured" class="fas fa-list"></a>
+    <a href="#arrivals" class="fas fa-tags"></a>
+    <a href="#reviews" class="fas fa-comments"></a>
+    <a href="#blogs" class="fas fa-blog"></a>
+</nav>
+
+<!-- login form  -->
+
+<div class="login-form-container">
+
+    <div id="close-login-btn" class="fas fa-times"></div>
+
+    <form action="">
+        <h3>sign in</h3>
+        <span>username</span>
+        <input type="email" name="" class="box" placeholder="enter your email" id="">
+        <span>password</span>
+        <input type="password" name="" class="box" placeholder="enter your password" id="">
+        <div class="checkbox">
+            <input type="checkbox" name="" id="remember-me">
+            <label for="remember-me"> remember me</label>
+        </div>
+        <input type="submit" value="sign in" class="btn">
+        <p>forget password ? <a href="#">click here</a></p>
+        <p>don't have an account ? <a href="#">create one</a></p>
+    </form>
+
+</div>
+
+<h2 class="checkoutform">Checkout</h2>
+<div class="row">
+    <div class="col-75">
+        <div class="container">
+            <form id="validate" action="/action_page.php">
+                <div class="row">
+                    <div class="col-50">
+                        <h3>Billing Address</h3>
+                        <label for="fname"><i class="fa fa-user"></i> Full Name</label>
+                        <input type="text" id="fname" name="fullname" placeholder="Jon doe" required>
+                        <label for="email"><i class="fa fa-envelope"></i> Email</label>
+                        <input type="text" id="email" name="email" placeholder="Jondoe@gmail.com" required>
+                        <label for="adr"><i class="fa fa-address-card-o"></i> Address</label>
+                        <input type="text" id="adr" name="address" placeholder="110 W. 15th Phnom Penh" required>
+                        <label for="city"><i class="fa fa-institution"></i> City</label>
+                        <input type="text" id="city" name="city" placeholder="Phnom Penh" required>
+
+                        <div class="row">
+                            <div class="col-50">
+                                <label for="state">State</label>
+                                <input type="text" id="state" name="state" placeholder="Phnom Penh"required>
+                            </div>
+                            <div class="col-50">
+                                <label for="zip">Zip</label>
+                                <input type="text" id="zip" name="zip" placeholder="12000"required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-50">
+                        <h3>Payment</h3>
+                        <label for="fname">Accepted Cards</label>
+                        <div class="icon-container">
+                            <i class="fa fa-cc-visa" style="color:navy;"></i>
+                            <i class="fa fa-cc-amex" style="color:blue;"></i>
+                            <i class="fa fa-cc-mastercard" style="color:red;"></i>
+                            <i class="fa fa-cc-discover" style="color:orange;"></i>
+                        </div>
+
+                        <label for="cname">Name on Card</label>
+                        <input type="text" id="cname" name="cardname" placeholder="Jon doe"required>
+                        <label for="ccnum">Credit card number</label>
+                        <input type="text" id="ccnum" name="cardnumber" placeholder="1111-2222-3333-4444"required>
+                        <label for="expmonth">Exp Month</label>
+                        <input type="text" id="expmonth" name="expmonth" placeholder="September"required>
+                        <div class="row">
+                            <div class="col-50">
+                                <label for="expyear">Exp Year</label>
+                                <input type="text" id="expyear" name="expyear" placeholder="2021"required>
+                            </div>
+                            <div class="col-50">
+                                <label for="cvv">CVV</label>
+                                <input type="text" id="cvv" name="cvv" placeholder="352"required>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <label>
+                <input type="checkbox" checked="checked" name="sameadr"> Shipping address same as billing
+                </label>
+                <input type="submit" value="Continue to checkout" class="btn">
+            </form>
+        </div>
+    </div>
+    
+    <div class="col-25">
+        <div class="container">
+            <h4>Cart <span class="price" style="color:black"><i class="fa fa-shopping-cart"></i> <b>4</b></span></h4>
+            <p><a href="#">Book</a> <span class="price">$1500</span></p>
+            <p><a href="#">Book</a> <span class="price">$1500</span></p>
+            <p><a href="#">Book</a> <span class="price">$1400</span></p>
+            <p><a href="#">Book</a> <span class="price">$1200</span></p>
+            <hr>
+            <p>Total <span class="price" style="color:black"><b>$12600</b></span></p>
+        </div>
+    </div>
+</div>
+
+<section class="footer">
+
+    <div class="box-container">
+ 
+        <div class="box">
+            <h3>our locations</h3>
+            <a href="#"> <i class="fas fa-map-marker-alt"></i> indonesia </a>
+            <a href="#"> <i class="fas fa-map-marker-alt"></i> USA </a>
+            <a href="#"> <i class="fas fa-map-marker-alt"></i> russia </a>
+            <a href="#"> <i class="fas fa-map-marker-alt"></i> france </a>
+            <a href="#"> <i class="fas fa-map-marker-alt"></i> japan </a>
+            <a href="#"> <i class="fas fa-map-marker-alt"></i> africa </a>
+        </div>
+ 
+        <div class="box">
+            <h3>quick links</h3>
+            <a href="#"> <i class="fas fa-arrow-right"></i> home </a>
+            <a href="#"> <i class="fas fa-arrow-right"></i> featured </a>
+            <a href="#"> <i class="fas fa-arrow-right"></i> arrivals </a>
+            <a href="#"> <i class="fas fa-arrow-right"></i> reviews </a>
+            <a href="#"> <i class="fas fa-arrow-right"></i> blogs </a>
+        </div>
+ 
+        <div class="box">
+            <h3>extra links</h3>
+            <a href="#"> <i class="fas fa-arrow-right"></i> account info </a>
+            <a href="#"> <i class="fas fa-arrow-right"></i> ordered items </a>
+            <a href="#"> <i class="fas fa-arrow-right"></i> privacy policy </a>
+            <a href="#"> <i class="fas fa-arrow-right"></i> payment method </a>
+            <a href="#"> <i class="fas fa-arrow-right"></i> our serivces </a>
+        </div>
+ 
+        <div class="box">
+            <h3>contact info</h3>
+            <a href="#"> <i class="fas fa-phone"></i> +123-456-7890 </a>
+            <a href="#"> <i class="fas fa-phone"></i> +111-222-3333 </a>
+            <a href="#"> <i class="fas fa-envelope"></i> hellofreewebsitecode@gmail.com </a>
+            <img src="image/worldmap.png" class="map" alt="">
+        </div>
+        
+    </div>
+ 
+    <div class="share">
+        <a href="#" class="fab fa-facebook-f"></a>
+        <a href="#" class="fab fa-twitter"></a>
+        <a href="#" class="fab fa-instagram"></a>
+        <a href="#" class="fab fa-linkedin"></a>
+        <a href="#" class="fab fa-pinterest"></a>
+    </div>
+ 
+ 
+ 
+ </section>
+ 
+
+<!-- script validate js -->
+<script>
+    $('#validate').validate({
+        roles: {
+            fullname: {
+                required: true,
+            },
+            email: {
+                required: true,
+            },
+            address: {
+                required: true,
+            },
+            city: {
+                required: true,
+            },
+            state: {
+                required: true,
+            },
+            zip: {
+                required: true,
+            },
+            cardname: {
+                required: true,
+            },
+            cardnumber: {
+                required: true,
+            },
+            expmonth: {
+                required: true,
+            },
+            expyear: {
+                required: true,
+            },
+            cvv: {
+                required: true,
+            },
+           
+        },
+        messages: {
+            fullname:"Please input full name*",
+            email:"Please input email*",
+            city:"Please input city*",
+            address:"Please input address*",
+            state:"Please input state*",
+            zip:"Please input address*",
+            cardname:"Please input card name*",
+            cardnumber:"Please input card number*",
+            expmonth:"Please input exp month*",
+            expyear:"Please input exp year*",
+            cvv:"Please input cvv*",
+        },
+    });
+</script>
+<script src="chekout.js/checkout.js"></script>
+</body>
+</html>
