@@ -162,29 +162,19 @@ var swiper = new Swiper(".blogs-slider", {
 /* James Front end js */
 
 
+const stars = document.getElementsByClassName('stars')
 
-fetch('http://localhost:3001/api/test/')
-.then(response => response.json())
-.then(result => {
-  result.forEach(element => {
-    console.log(element)
-    $('#featured-selector').append(`
-    <div class="swiper-slide box">
-      <div class="icons">
-        <a href="#" class="fas fa-search"></a>
-        <a href="#" class="fas fa-heart"></a>
-        <a href="#" class="fas fa-eye"></a>
-      </div>
-    <div class="image">
-        <img src="${element.book.thumbnail}" alt="">
-    </div>
-    <div class="content">
-        <h3>${element.book.title}</h3>
-        <div class="price">$15.99 <span>$20.99</span></div>
-        <a href="#" class="btn">add to cart</a>
-    </div>
-  </div>
-  `)
-})
-});
+
+
+console.log(stars)
+
+// fetch('http://localhost:3001/api/test/')
+// .then(response => response.json())
+// .then(result => {
+//   result.forEach(element => {
+//     $('#featured-selector').append(`
+
+//   `)
+// })
+// });
 
