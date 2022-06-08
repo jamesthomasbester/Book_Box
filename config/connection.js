@@ -8,7 +8,14 @@ let sequelize = new Sequelize(
 {
     host: 'ec2-34-231-221-151.compute-1.amazonaws.com',
     dialect: 'postgres',
-    port: 5432
+    port: 5432,
+    ssl: true,
+    dialectOptions: {
+        ssl: {
+            required: true,
+            rejectUnauthorized: false
+        }
+    }
 }
 );
 
