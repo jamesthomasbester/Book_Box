@@ -1,6 +1,6 @@
 
 const router = require('express').Router();
-const { Book, User, Comment } = require('../../models');
+const { Book, User} = require('../../models');
 const withAuth = require('../../utils/auth');
 
 
@@ -35,6 +35,10 @@ router.get('/', (req, res) => {
       res.status(500).json(err);
     });
 });
+
+router.post('/favourite', {
+
+})
 
 
 router.get('/:category', (req, res) => {

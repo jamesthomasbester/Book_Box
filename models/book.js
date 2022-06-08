@@ -23,19 +23,14 @@ Book.init(
             type: DataTypes.TEXT('long'),
             allowNull: false
         },
-        image_url: {
+        price: {
             type: DataTypes.STRING,
-            allowNull: true,
-            validate: {
-                isURL: true
-            }
+            allowNull: false,
+            defaultValue: '$15.99'
         },
-        user_id: {
+        rating_count: {
             type: DataTypes.INTEGER,
-            references: {
-                model: 'user',
-                key: 'id'
-            }
+            allowNull: false
         }
     },
     {
