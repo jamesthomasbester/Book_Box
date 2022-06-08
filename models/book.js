@@ -9,29 +9,60 @@ Book.init(
             type: DataTypes.INTEGER,
             allowNull: false,
             primaryKey: true,
-            autoIncrement: true
+            autoIncrement: true,
+            unique: true,
+        },
+        isbn13: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
+        isbn10: {
+            type: DataTypes.STRING,
+            allowNull: false,
         },
         title: {
             type: DataTypes.STRING,
-            allowNull: true
+            allowNull: false,
         },
-        category: {
+        subtitle: {
             type: DataTypes.STRING,
-            allowNull: false
+            allowNull: true,
         },
-        description: {
-            type: DataTypes.TEXT('long'),
-            allowNull: false
-        },
-        price: {
+        author: {
             type: DataTypes.STRING,
             allowNull: false,
-            defaultValue: '$15.99'
+        },
+        categories: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            defaultValue: "fiction"
+        },
+        thumbnail: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
+        description: {
+            type: DataTypes.STRING(1234),
+            allowNull: false,
+            defaultValue: 'was good'
+        },
+        published_year: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+        },
+        average_rating : {
+            type: DataTypes.FLOAT,
+            allowNull: false,
+            defaultValue: 3.2
+        },
+        num_pages: {
+            type: DataTypes.INTEGER,
+            allowNull: false
         },
         rating_count: {
             type: DataTypes.INTEGER,
             allowNull: false
-        }
+        },
     },
     {
         sequelize,
