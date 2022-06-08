@@ -36,6 +36,10 @@ router.get('/', (req, res) => {
     });
 });
 
+router.post('/favourite', {
+
+})
+
 
 router.get('/:category', (req, res) => {
   Recipe.findAll({

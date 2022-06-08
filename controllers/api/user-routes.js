@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User, Book} = require('../../models');
+const { User, Book, Favorite } = require('../../models');
 
 router.get('/', (req, res) => {
     User.findAll({
@@ -11,6 +11,10 @@ router.get('/', (req, res) => {
             res.status(500).json(err);
         });
 });
+
+router.post('/favourites', (req, res) => {
+    res.status(200).json(req.session.user_id)
+})
 
 router.get('/:id', (req, res) => {
     User.findOne({

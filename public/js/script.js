@@ -161,20 +161,15 @@ var swiper = new Swiper(".blogs-slider", {
 
 /* James Front end js */
 
-
 const stars = document.getElementsByClassName('stars')
 
+function searchPage(){
+  console.log('loaded')
+}
 
-
-console.log(stars)
-
-// fetch('http://localhost:3001/api/test/')
-// .then(response => response.json())
-// .then(result => {
-//   result.forEach(element => {
-//     $('#featured-selector').append(`
-
-//   `)
-// })
-// });
-
+$('.search-form').submit((e) => {
+  e.preventDefault();
+  let search = $('#search-box').val()
+  console.log(window.location.search)
+  window.location.href = `/${search}` 
+})

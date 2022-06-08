@@ -28,14 +28,6 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(routes);
 
-// hbs.handlebars.registerHelper('if_eq', function(a, b, opts) {
-//   if (a == b) {
-//       return opts.fn(this);
-//   } else {
-//       return opts.inverse(this);
-//   }
-// });
-
 sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => console.log(`listening on http://localhost:${PORT}`));
 });
