@@ -13,8 +13,6 @@ router.get('/', async (req, res) => {
     }catch{
         res.render('homepage')
     }
-
-    
 })
 
 router.get('/checkout', (req, res) => {
@@ -39,5 +37,6 @@ router.get('/:search', async (req, res) =>{
         const Author = author.map(item => item.get({ plain : true }))
         res.render('search', {Category, Tilte, Author})
 })
+
 
 module.exports = router;
