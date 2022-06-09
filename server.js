@@ -11,9 +11,9 @@ const { Http2ServerResponse } = require('http2');
 const app = express();
 const PORT = process.env.PORT || 3001;
 const hbs = exphbs.create({ helpers });
-const sslRedirect = require('heroku-ssl-redirect').default
+// const sslRedirect = require('heroku-ssl-redirect').default
 
-app.use(sslRedirect(['production'], 301));
+// app.use(sslRedirect(['production'], 301));
 app.use(session({
   secret: 'testing',
   resave: true,

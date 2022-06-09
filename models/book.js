@@ -14,7 +14,7 @@ Book.init(
         },
         isbn13: {
             type: DataTypes.STRING,
-            allowNull: false,
+            allowNull: true,
         },
         isbn10: {
             type: DataTypes.STRING,
@@ -42,7 +42,7 @@ Book.init(
             allowNull: false,
         },
         description: {
-            type: DataTypes.STRING(1234),
+            type: DataTypes.TEXT,
             allowNull: false,
             defaultValue: 'was good'
         },

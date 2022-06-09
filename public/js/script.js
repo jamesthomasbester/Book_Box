@@ -5,12 +5,22 @@ document.querySelector('#search-btn').onclick = () =>{
 }
 
 let loginForm = document.querySelector('.login-form-container');
+let signupForm = document.querySelector('.signup-form-container')
 
 document.querySelector('#login-btn').onclick = () =>{
   loginForm.classList.toggle('active');
 }
 
+document.querySelector('#signup-btn').onclick = () => {
+  signupForm.classList.toggle('active')
+  loginForm.classList.remove('active')
+}
+
 document.querySelector('#close-login-btn').onclick = () =>{
+  loginForm.classList.remove('active');
+}
+
+document.querySelector('#close-signup-btn').onclick = () =>{
   loginForm.classList.remove('active');
 }
 
@@ -163,9 +173,6 @@ var swiper = new Swiper(".blogs-slider", {
 
 const stars = document.getElementsByClassName('stars')
 
-function searchPage(){
-  console.log('loaded')
-}
 
 $('.search-form').submit((e) => {
   e.preventDefault();
