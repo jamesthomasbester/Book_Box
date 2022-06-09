@@ -18,15 +18,20 @@
   },
   "homepage": "https://github.com/jamesthomasbester/Book_Box#readme",
   "dependencies": {
-    "csv-parse": "^5.1.0",
     "bcrypt": "^5.0.1",
+    "connection-manager": "^1.0.5",
+    "csv-parse": "^5.1.0",
     "dotenv": "^16.0.1",
     "express": "^4.18.1",
     "express-handlebars": "^6.0.6",
     "express-session": "^1.17.3",
     "fs": "^0.0.1-security",
+    "mysql": "^2.18.1",
     "mysql2": "^2.3.3",
-    "node-fetch": "^3.2.4",
-    "sequelize": "^6.20.1"
+    "node-fetch": "^3.2.5",
+    "nodemon": "^2.0.16",
+    "pg": "^8.7.3",
+    "sequelize": "^6.20.1",
+    "test": "^3.0.0"
   }
 }
