@@ -8,6 +8,9 @@ let sequelize = new Sequelize(
     {
         host: 'ec2-34-231-221-151.compute-1.amazonaws.com',
         dialect: 'postgres',
+        user: process.env.DB_USER,
+        password: process.env.DB_PASSWORD,
+        database: process.env.DB_NAME,
         port: 5432,
         dialectOptions:{
             ssl: {
