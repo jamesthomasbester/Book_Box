@@ -15,5 +15,6 @@ let sequelize = new Sequelize(
             }
         }
     });
+    sequelize.authenticate().then(() => console.log('connection was established')).catch(err => console.log('unable to connect with error:'. err))
 
 module.exports = sequelize;
