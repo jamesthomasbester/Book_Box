@@ -7,6 +7,9 @@ document.querySelector('#search-btn').onclick = () =>{
 let loginForm = document.querySelector('.login-form-container');
 let signupForm = document.querySelector('.signup-form-container')
 
+
+// loginForm.classList.toggle('active');
+
 document.querySelector('#login-btn').onclick = () =>{
   loginForm.classList.toggle('active');
 }
@@ -170,6 +173,8 @@ var swiper = new Swiper(".blogs-slider", {
 });
 
 /* James Front end js */
+
+
 
 const stars = document.getElementsByClassName('stars')
 

@@ -15,6 +15,7 @@ const loginFormHandler = async (event) => {
       if (response.ok) {
         // If successful, redirect the browser to the profile page
         document.location.replace('/');
+        // document.querySelector('login-form-container').classList.remove('active');
       } else {
         alert(response.statusText);
       }
@@ -46,8 +47,4 @@ const loginFormHandler = async (event) => {
   document
     .querySelector('#login-form')
     .addEventListener('submit', loginFormHandler);
-  
-  // document
-  //   .querySelector('#signup-form')
-  //   .addEventListener('submit', signupFormHandler);
   

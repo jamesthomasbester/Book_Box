@@ -31,6 +31,7 @@ Book.init(
         author: {
             type: DataTypes.STRING,
             allowNull: false,
+            defaultValue: 'Steven King'
         },
         categories: {
             type: DataTypes.STRING,

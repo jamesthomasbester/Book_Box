@@ -11,8 +11,8 @@ Favourite.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    name: {
-      type: DataTypes.STRING,
+    book_id: {
+      type: DataTypes.INTEGER,
       allowNull: false,
     },
     user_id: {

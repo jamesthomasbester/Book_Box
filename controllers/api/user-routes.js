@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User, Book, Favorite } = require('../../models');
+const { User, Book, Favourite, Cart } = require('../../models');
 
 router.get('/', (req, res) => {
     User.findAll({
@@ -12,8 +12,30 @@ router.get('/', (req, res) => {
         });
 });
 
-router.post('/favourites', (req, res) => {
+router.post('/cart', async (req, res) => {
+
+  Cart.create({
+    book_id: parseInt(req.body.book_id),
+    user_id: req.session.user_id
+  })
     res.status(200).json(req.session.user_id)
+})
+
+router.post('/favourites', async (req, res) => {
+  const currentFav = await Favourite.findAll({ where: { user_id: req.session.user_id, book_id: req.body.book_id }})
+  if(! currentFav[0]){
+    Favourite.create({
+      book_id: parseInt(req.body.book_id),
+      user_id: req.session.user_id
+    })
+  }else{
+    Favourite.destroy({ where: { user_id: req.session.user_id, book_id: req.body.book_id}})
+  }
+    res.status(200).json(req.session.user_id)
+})
+
+router.get('/favourites', (req, res) => {
+
 })
 
 router.get('/:id', (req, res) => {
@@ -71,6 +93,8 @@ router.post('/', (req, res) => {
     })
 });
 
+
+
 router.post('/login', (req, res) => {
   User.findOne({
     where: {
@@ -88,7 +112,6 @@ router.post('/login', (req, res) => {
       res.status(400).json({ message: 'Incorrect password!' });
       return;
     }
-
     req.session.save(() => {
       req.session.user_id = dbUserData.id;
       req.session.username = dbUserData.username;

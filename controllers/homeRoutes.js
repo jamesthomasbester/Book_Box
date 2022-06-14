@@ -1,15 +1,25 @@
 const router = require('express').Router();
 const { get } = require('express/lib/response');
 const { Op } = require("sequelize");
-const { Book } = require('../models');
+const { Book, Favourite, Cart } = require('../models');
+//const { withAuth } = require('../utils/auth')
 
 router.get('/', async (req, res) => {
     try{
         const bookData = await Book.findAll({ where: { average_rating : {[Op.gt]: 4.8}}})
-        const newArrivals = await Book.findAll({ where: { published_year: {[Op.gt]: 2017 }}})
+        const newArrivals = await Book.findAll({ where: { published_year: {[Op.gt]: 2010 }}})
+        const newFav = await Favourite.findAll({ where: { user_id: req.session.user_id }})
         const books = bookData.map(item => item.get({ plain: true}))
         const arrivals = newArrivals.map(item => item.get({ plain: true}))
-        res.render('homepage', {books, arrivals});
+        const favs = newFav.map(item => item.get({ plain: true }))
+        console.log(favs);
+        res.render('homepage', {
+            loggedIn: req.session.loggedIn,
+            favs,
+            books, 
+            arrivals,
+            user: req.session.username
+        });
     }catch{
         res.render('homepage')
     }
@@ -17,6 +27,16 @@ router.get('/', async (req, res) => {
 
 router.get('/checkout', (req, res) => {
     res.render('checkout')
+})
+
+router.get('/cart', async (req, res) => {
+    const cartData = await Cart.findAll({where: { user_id: req.session.user_id}})
+    const cart = cartData.map(item => item.get({plain:true}).id)
+    const bookData = await Book.findAll({where: { id: cart}})
+    const books = bookData.map(item => item.get({plain: true}))
+    console.log(cart)
+    console.log(books)
+    res.render('cart', {books})
 })
 
 router.get('/:search', async (req, res) =>{
@@ -27,12 +47,12 @@ router.get('/:search', async (req, res) =>{
         const Category = category.map(item => item.get({ plain : true }))
         const title = await Book.findAll({ 
             where: { 
-                categories: req.params.search,
+                title: req.params.search,
             }})
         const Tilte = title.map(item => item.get({ plain : true }))
         const author = await Book.findAll({ 
             where: { 
-                categories: req.params.search,
+                author: req.params.search,
             }})
         const Author = author.map(item => item.get({ plain : true }))
         res.render('search', {Category, Tilte, Author})

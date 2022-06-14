@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const {Book, Uaer} = require('../../models');
+const {Book, User, Favourite} = require('../../models');
 
 router.get('/', (req, res) =>{
 
@@ -20,6 +20,11 @@ router.get('/:id', (req, res) =>{
 
 router.post('/', (req, res) => {
 
+})
+
+router.post('/favourite', (req, res) => {
+    console.log(req.body)
+    //Favourite.create({})
 })
 
 router.get('/title/:title', (req, res) => {

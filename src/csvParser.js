@@ -3,6 +3,8 @@ const fs = require('fs')
 
 let data = [];
 
+
+
 fs.createReadStream('./db/books.csv', 'utf-8')
 .pipe(parse({ relaxQuotes: true}))
 .on('data', (csvrow) => {
@@ -20,7 +22,11 @@ fs.createReadStream('./db/books.csv', 'utf-8')
             average_rating: csvrow[9],
             num_pages: csvrow[10],
             rating_count: csvrow[11],
+            price: Math.floor(Math.random() * (29.99 - 10.99 + 1) + 10.99)
         });
 })
-.on('end', () =>  fs.writeFileSync('books.json', JSON.stringify(data)))
+.on('end', () =>  {
+    fs.writeFileSync('books.json', JSON.stringify(data))
+    console.log(data);
+})
 

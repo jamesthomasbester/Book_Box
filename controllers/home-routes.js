@@ -3,7 +3,6 @@ const { Op } = require('sequelize');
 const { Recipe, User, Comment, Book } = require('../models');
 
 router.get('/', (req,res) => {
-    console.log(req.session)
     Book.findAll({
         where: {
             id: {
