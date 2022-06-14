@@ -6,9 +6,14 @@ let sequelize = new Sequelize(
     process.env.DB_USER,
     process.env.DB_PASSWORD,
     {
-        host: 'localhost',
-        dialect: 'mysql',
-        port: 3306
+        host: 'ec2-34-231-221-151.compute-1.amazonaws.com',
+        dialect: 'postgres',
+        port: 5432,
+        dialectOptions:{
+            ssl: {
+                rejectUnauthorized: false
+            }
+        }
     });
 
 module.exports = sequelize;
