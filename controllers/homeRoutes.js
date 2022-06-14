@@ -40,11 +40,11 @@ router.get('/cart', async (req, res) => {
 })
 
 router.get('/:search', async (req, res) =>{
-        const category = await Book.findAll({ 
+        const categories = await Book.findAll({ 
             where: { 
                 categories: req.params.search,
             }})
-        const Category = category.map(item => item.get({ plain : true }))
+        const Category = categories.map(item => item.get({ plain : true }))
         const title = await Book.findAll({ 
             where: { 
                 title: req.params.search,
