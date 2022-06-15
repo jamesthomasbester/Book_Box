@@ -22,8 +22,6 @@ const hbs = exphbs.create({ helpers: {
   }
 }});
 // const sslRedirect = require('heroku-ssl-redirect').default
-
-// app.use(sslRedirect(['production'], 301));
 app.use(session({
   secret: 'testing',
   cookie: {},
@@ -43,5 +41,5 @@ app.use(routes);
 
 
 sequelize.sync({ force: false }).then(() => {
-  app.listen(PORT, () => console.log(`listening on http://localhost:${PORT}`));
+  app.listen(process.env.PORT || 3000, () => console.log(`listening on `, this.address().port));
 });
