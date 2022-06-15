@@ -18,51 +18,55 @@ Book.init(
         },
         isbn10: {
             type: DataTypes.STRING,
-            allowNull: false,
+            allowNull: true,
         },
         title: {
             type: DataTypes.STRING,
-            allowNull: false,
+            allowNull: true,
         },
         subtitle: {
             type: DataTypes.STRING,
             allowNull: true,
+            defaultValue: 'book'
         },
         author: {
             type: DataTypes.STRING,
-            allowNull: false,
+            allowNull: true,
             defaultValue: 'Steven King'
         },
         categories: {
             type: DataTypes.STRING,
-            allowNull: false,
+            allowNull: true,
             defaultValue: "fiction"
         },
         thumbnail: {
             type: DataTypes.STRING,
-            allowNull: false,
+            allowNull: true,
         },
         description: {
             type: DataTypes.TEXT,
-            allowNull: false,
+            allowNull: true,
             defaultValue: 'was good'
         },
         published_year: {
             type: DataTypes.INTEGER,
-            allowNull: false,
+            allowNull: true,
+            defaultValue: 2009
         },
         average_rating : {
             type: DataTypes.FLOAT,
-            allowNull: false,
+            allowNull: true,
             defaultValue: 3.2
         },
         num_pages: {
             type: DataTypes.INTEGER,
-            allowNull: false
+            allowNull: true,
+            defaultValue: 300
         },
         rating_count: {
             type: DataTypes.INTEGER,
-            allowNull: false
+            allowNull: true,
+            defaultValue: 326
         },
     },
     {
