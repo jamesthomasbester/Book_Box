@@ -4,7 +4,7 @@ const { Op } = require("sequelize");
 const { Book, Favourite, Cart } = require('../models');
 //const { withAuth } = require('../utils/auth')
 
-router.get('/home', async (req, res) => {
+router.get('/', async (req, res) => {
     try{
         const bookData = await Book.findAll({ where: { average_rating : {[Op.gt]: 4.8}}})
         const newArrivals = await Book.findAll({ where: { published_year: {[Op.gt]: 2010 }}})
