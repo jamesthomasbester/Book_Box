@@ -49,13 +49,13 @@ router.get('/:search', async (req, res) =>{
             where: { 
                 title: req.params.search,
             }})
-        const Tilte = title.map(item => item.get({ plain : true }))
+        const Title = title.map(item => item.get({ plain : true }))
         const author = await Book.findAll({ 
             where: { 
                 author: req.params.search,
             }})
         const Author = author.map(item => item.get({ plain : true }))
-        res.render('search', {Category, Tilte, Author})
+        res.render('search', {Category, Title, Author})
 })
 
 
