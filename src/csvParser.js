@@ -8,13 +8,6 @@ let data = [];
 fs.createReadStream('./db/books.csv', 'utf-8')
 .pipe(parse({ relaxQuotes: true}))
 .on('data', (csvrow) => {
-    // csvrow = csvrow.map(item => {
-    //     if(item == ''){
-    //         return item = '0'
-    //     }else{
-    //         return item;
-    //     }
-    // })
     data.push(
         {
             isbn13: csvrow[0],

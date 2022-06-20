@@ -2,25 +2,25 @@ const router = require('express').Router();
 const { get } = require('express/lib/response');
 const { Op } = require("sequelize");
 const { Book, Favourite, Cart } = require('../models');
-//const { withAuth } = require('../utils/auth')
 
 router.get('/', async (req, res) => {
     try{
         const bookData = await Book.findAll({ where: { average_rating : {[Op.gt]: 4.8}}})
         const newArrivals = await Book.findAll({ where: { published_year: {[Op.gt]: 2010 }}})
-        const newFav = await Favourite.findAll({ where: { user_id: req.session.user_id }})
+  //      const newFav = await Favourite.findAll({ where: { user_id: req.session.user_id }})
         const books = bookData.map(item => item.get({ plain: true}))
         const arrivals = newArrivals.map(item => item.get({ plain: true}))
-        const favs = newFav.map(item => item.get({ plain: true }))
-        console.log(favs);
+   //     const favs = newFav.map(item => item.get({ plain: true }))
+        console.log(books);
         res.render('homepage', {
             loggedIn: req.session.loggedIn,
-            favs,
+  //          favs,
             books, 
             arrivals,
-            user: req.session.username
+   //         user: req.session.username
         });
-    }catch{
+    }catch(err){
+        console.log(err)
         res.render('homepage')
     }
 })
