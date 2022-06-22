@@ -8,16 +8,7 @@ const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 const app = express();
 const PORT = process.env.PORT || 3001;
-const hbs = exphbs.create({ helpers: {
-  'ifnoteq': function (a, b, options) {
-    if (a != b) { return options.fn(this); }
-    return options.inverse(this);
-  },
-  'ifeq': function (a, b, options) {
-    if (a == b) { return options.fn(this); }
-    return options.inverse(this);
-  }
-}});
+
 // const sslRedirect = require('heroku-ssl-redirect').default
 app.use(session({
   secret: 'testing',
@@ -29,6 +20,17 @@ app.use(session({
       db: sequelize
   })
 }))
+
+const hbs = exphbs.create({ helpers: {
+  'ifnoteq': function (a, b, options) {
+    if (a != b) { return options.fn(this); }
+    return options.inverse(this);
+  },
+  'ifeq': function (a, b, options) {
+    if (a == b) { return options.fn(this); }
+    return options.inverse(this);
+  }
+}});
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 app.use(express.json());

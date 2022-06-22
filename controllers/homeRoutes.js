@@ -11,7 +11,7 @@ router.get('/', async (req, res) => {
         const books = bookData.map(item => item.get({ plain: true}))
         const arrivals = newArrivals.map(item => item.get({ plain: true}))
    //     const favs = newFav.map(item => item.get({ plain: true }))
-        console.log(books);
+        console.log(req.session);
         res.render('homepage', {
             loggedIn: req.session.loggedIn,
   //          favs,

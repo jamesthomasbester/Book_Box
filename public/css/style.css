@@ -315,20 +315,20 @@ section{
     margin:2rem;
 }
 
-.singup-form-container form h3{
+.signup-form-container form h3{
     font-size: 2.5rem;
     text-transform: uppercase;
     color:var(--black);
     text-align: center;
 }
 
-.singup-form-container form span{
+.signup-form-container form span{
     display: block;
     font-size: 1.5rem;
     padding-top: 1rem;
 }
 
-.singup-form-container form .box{
+.signup-form-container form .box{
     width: 100%;
     margin:.7rem 0;
     font-size: 1.6rem;
@@ -358,7 +358,7 @@ section{
     margin:1.5rem 0;
 }
 
-.singup-form-container form p{
+.signup-form-container form p{
     padding-top: .8rem;
     color:var(--light-color);
     font-size: 1.5rem;
@@ -369,7 +369,7 @@ section{
     text-decoration: underline;
 }
 
-.singup-form-container #close-signup-btn{
+.signup-form-container #close-signup-btn{
     position: absolute;
     top:1.5rem; right:2.5rem;
     font-size: 5rem;
